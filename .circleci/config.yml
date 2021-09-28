@@ -1,0 +1,28 @@
+version: 2.1
+
+jobs:
+  deploy_production:
+    docker:
+      - image: 268363583562.dkr.ecr.eu-west-1.amazonaws.com/circleci:latest
+        aws_auth:
+          aws_access_key_id: $AWS_ACCESS_KEY
+          aws_secret_access_key: $AWS_SECRET_KEY
+    steps:
+      - checkout
+      - run:
+          name: List directory
+          command: ls -la
+      - run:
+          name: Copy files to S3 Bucket ys-profile-website
+          command: aws s3 cp . s3://ys-profile-website --recursive --exclude "*" --include "index.html" --include "favicon.ico" --include "resources/*" --include "vendors/*"
+      - run:
+          name: Invalidate CloudFront Distribution
+          command: aws cloudfront create-invalidation --distribution-id E2DHEWFM7HZ75X --paths "/*"
+
+workflows:
+  build:
+    jobs:
+      - deploy_production:
+          filters:
+            branches:
+              only: master

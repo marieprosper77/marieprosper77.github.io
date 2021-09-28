@@ -1,0 +1,76 @@
+/* From big tablet to 1200px 1024px to 1200px */
+@media only screen and (max-width: 1200px) {
+}
+
+/* Small tablet to big tablet (iPad in portrait mode) 768px to 1023px */
+@media only screen and (max-width: 1023px) {
+    .skill-icon {
+        height: 50px;
+    }
+
+    .sub-title {
+        font-size: 70%
+    }
+
+    .name-header {
+        font-size: 130% !important;
+        text-align: center;
+    }
+
+    .col-3 {
+        margin-right: 35px;
+    }
+
+    .right-col li span {
+        font-size: 16px;
+    }
+}
+
+/* Small phones to small tablets 481 to 767px */
+@media only screen and (max-width: 767px) {
+    .main-nav {
+        display: none;
+    }
+
+    .mobile-nav-icon {
+        display: inline-block;
+    }
+
+    .main-nav {
+        float: left;
+        text-align: left;
+        margin-top: 30px;
+        margin-left: 25px;
+    }
+
+    .main-nav li {
+        display: block;
+    }
+
+    .main-nav li a:link,
+    .main-nav li a:visited {
+        padding: 3px 0;
+        display: block;
+        border: 0;
+        font-size: 70%;
+    }
+
+    .profile-body {
+        font-size: 16px !important;
+    }
+
+    .profile-pic-col {
+        text-align: left;
+    }
+
+    .profile-pic {
+        height: 150px;
+        margin-top: 10px;
+    }
+
+}
+
+/* Small phones from 0 to 480px */
+@media only screen and (max-width: 480px) {
+}
+
